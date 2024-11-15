@@ -1,0 +1,65 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 25,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "conan",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_PROJECT_TOP_LEVEL_INCLUDES": "${sourceDir}/cmake/conan/conan_provider.cmake"
+            }
+        },
+        {
+            "name": "default",
+            "displayName": "Default Config",
+            "description": "Default build using Ninja generator",
+            "inherits": [
+                "conan"
+            ],
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": true,
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_VERBOSE_MAKEFILE": "ON"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "windows",
+            "displayName": "Windows x86_64 Default",
+            "configurePreset": "default"
+        },
+        {
+            "name": "darwin",
+            "displayName": "macOS Default",
+            "configurePreset": "default"
+        },
+        {
+            "name": "linux",
+            "displayName": "linux x86_64 Default",
+            "configurePreset": "default"
+        }
+    ],
+    "workflowPresets": [
+        {
+            "name": "windows",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "default"
+                },
+                {
+                    "type": "build",
+                    "name": "windows"
+                }
+            ]
+        }
+    ]
+
+}
