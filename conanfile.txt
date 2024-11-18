@@ -1,8 +1,10 @@
 [requires]
 fmt/9.1.0
+gtest/1.15.0
 
 [layout]
 cmake_layout
 
 [generators]
 CMakeDeps
+CMakeToolchain

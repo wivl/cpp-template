@@ -19,7 +19,4 @@ target_compile_features(${PROJECT_NAME}
 )
 
 
-
-if(BUILD_TESTING)
-    add_subdirectory(tests)
-endif()
+add_subdirectory(tests)

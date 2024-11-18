@@ -46,6 +46,14 @@
             "configurePreset": "default"
         }
     ],
+    "testPresets": [
+        {
+            "name": "default",
+            "displayName": "Run All Tests",
+            "description": "Run all tests with CTest",
+            "configurePreset": "default"
+        }
+    ],
     "workflowPresets": [
         {
             "name": "windows",
@@ -57,9 +65,12 @@
                 {
                     "type": "build",
                     "name": "windows"
+                },
+                {
+                    "type": "test",
+                    "name": "default"
                 }
             ]
         }
     ]
-
 }
